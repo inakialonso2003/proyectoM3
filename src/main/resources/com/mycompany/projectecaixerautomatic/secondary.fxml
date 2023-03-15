@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Button?>
+<?import javafx.geometry.Insets?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.projectecaixerautomatic.SeleccionCuentas">
+   <children>
+      <Label layoutX="14.0" layoutY="14.0" text="Bienvenido ">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="94.0" layoutY="148.0" text="Selecciona una de tus cuentas bancarias">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Label>
+      <Button fx:id="principal" layoutX="94.0" layoutY="242.0" mnemonicParsing="false" onAction="#seleccionarcuenta" text="Cuenta Principal" />
+      <Button fx:id="ahorros" layoutX="381.0" layoutY="242.0" mnemonicParsing="false" onAction="#seleccionarcuenta" text="Cuenta Ahorros" />
+      <Label fx:id="mensaje" layoutX="204.0" layoutY="104.0" />
+   </children>
+</Pane>

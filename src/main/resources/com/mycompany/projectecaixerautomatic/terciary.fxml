@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.projectecaixerautomatic.cuentaprincipal">
+   <children>
+      <Label fx:id="mensaje" layoutX="14.0" layoutY="14.0" text="Cuenta principal de">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Label>
+      <Label fx:id="mensajepop" layoutX="176.0" layoutY="14.0">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Label>
+      <Label fx:id="mensaje1" layoutX="14.0" layoutY="83.0" text="Saldo actual :">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Label>
+      <RadioButton fx:id="ingresar" layoutX="14.0" layoutY="288.0" mnemonicParsing="false" text="Ingresar">
+         <toggleGroup>
+            <ToggleGroup fx:id="operaciones" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="retirar" layoutX="14.0" layoutY="320.0" mnemonicParsing="false" text="Retirar" toggleGroup="$operaciones" />
+      <RadioButton fx:id="transferir" layoutX="14.0" layoutY="353.0" mnemonicParsing="false" text="Transferir" toggleGroup="$operaciones" />
+      <TextField fx:id="saldoactual" layoutX="129.0" layoutY="81.0" />
+   </children>
+</AnchorPane>
