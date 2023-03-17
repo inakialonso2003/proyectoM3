@@ -31,6 +31,6 @@
       </RadioButton>
       <RadioButton fx:id="retirar" layoutX="14.0" layoutY="320.0" mnemonicParsing="false" text="Retirar" toggleGroup="$operaciones" />
       <RadioButton fx:id="transferir" layoutX="14.0" layoutY="353.0" mnemonicParsing="false" text="Transferir" toggleGroup="$operaciones" />
-      <TextField fx:id="saldoactual" layoutX="129.0" layoutY="81.0" />
+      <TextField fx:id="saldoactual" layoutX="128.0" layoutY="81.0" />
    </children>
 </AnchorPane>
