@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+
 public class SeleccionCuentas {
     @FXML
     Button principal;
@@ -14,24 +15,25 @@ public class SeleccionCuentas {
     Label mensajepop;
     @FXML
     Label mensaje;
-    
+
     @FXML
-    public void initialize(){
-     mensajepop.setText(App.nom);
+    public void initialize() {
+        mensajepop.setText(App.nom);
 
     }
-    public void seleccionarcuenta(ActionEvent event) throws IOException{
+
+    public void seleccionarcuenta(ActionEvent event) throws IOException {
         boolean cuenta;
         if (event.getSource() == principal) {
-            cuenta =true;
-            App.cuentas=cuenta;
+            cuenta = true;
+            App.cuentas = cuenta;
             mensaje.setText("CUENTA PRINCIPAL");
             App.setRoot("terciary");
-        }else if (event.getSource() == ahorros) {
+        } else if (event.getSource() == ahorros) {
             cuenta = false;
             mensaje.setText("CUENTA AHORROS");
-            App.cuentas=cuenta;
-            App.setRoot("terciary");
+            App.cuentas = cuenta;
+            App.setRoot("cuarto");
+        }
     }
-    }    
 }

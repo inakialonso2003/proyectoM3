@@ -10,6 +10,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+
 public class InicioSesion {
     @FXML
     TextField usuario;
@@ -21,47 +22,27 @@ public class InicioSesion {
     Button login;
     int intentos = 0;
 
-    public void initialize(){
+    public void initialize() {
+        System.out.println(App.nuevobanco.toString());
     }
-    
+
     public void login() throws IOException {
-    String[] usuarios = {"InakiAlonso","UnaiGomez", "AbdeZafzafi", "RaulFonts","IsmaelPolanco"};
-    String[] passwords = {"ialonso", "ugomez", "azafzafi", "rfonts","ipolanco"};
-    String user = usuario.getText();
-    String password = contraseña.getText();
-    App.nom = user;
-    
-    
-    //VALIDACION DE LECTURA DE USUARIOS Y CONTRASEÑAS
-            for (int i = 0; i < usuarios.length; i++) {
-                if (usuarios[i].equals(user) && passwords[i].equals(password)) {
-                    App.setRoot("secondary");                
-                }
-            }
-            
-    //ERROR INICIO DE SESIÓN
-            for (int i = 0; i< usuarios.length; i++){
-                
-                //algun campo vacio
-                if (user.equals("") || password.equals("")) {
-                mensaje.setText("Rellena todos los campos");
-                
-                //todos los campos rellenos pero con algun error
-                }else if (!usuarios[i].equals(user) && !passwords[i].equals(password) || 
-                          usuarios[i].equals(user) && !passwords[i].equals(password) || 
-                          !usuarios[i].equals(user) && passwords[i].equals(password)) {
-                    intentos++;
-                    mensaje.setText("Error, has introducido los valores \nincorrectamente "+intentos+" vez/ces");
-                    
-                    //acumulador de errores
-                    if (intentos == 3) {
-                        usuario.setEditable(false);
-                        contraseña.setEditable(false);
-                        mensaje.setText("Error, has introducido los valores \nincorrectamente demasiadas veces");
-                    }
-                }
+        String user = usuario.getText();
+        String password = contraseña.getText();
+        App.nom = user;
+        int intentos = 0;
+        // VALIDACION DE LECTURA DE USUARIOS Y CONTRASEÑAS
+        boolean inicioSesionExitoso;
+        if (user.trim().isEmpty() || password.trim().isEmpty()) {
+            mensaje.setText("Por favor, rellene todos los campos");
+            return;
+        }
+        for (var i = 0; i < App.getbanco().getListaclientes().size(); i++) {
+            clientes cliente = App.getbanco().getListaclientes().get(i);
+            if (cliente.getNombre().equals(user) && cliente.getContrasena().equals(password)) {
+                inicioSesionExitoso = true;
                 break;
-            
             }
+        }
     }
-}       
+}

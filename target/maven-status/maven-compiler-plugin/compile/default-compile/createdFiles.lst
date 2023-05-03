@@ -1,2 +1,9 @@
+com\mycompany\projectecaixerautomatic\cuentaahorro.class
+com\mycompany\projectecaixerautomatic\cuentaprincipal.class
+com\mycompany\projectecaixerautomatic\cuentas.class
+com\mycompany\projectecaixerautomatic\clientes.class
 com\mycompany\projectecaixerautomatic\App.class
 module-info.class
+com\mycompany\projectecaixerautomatic\SeleccionCuentas.class
+com\mycompany\projectecaixerautomatic\InicioSesion.class
+com\mycompany\projectecaixerautomatic\banco.class

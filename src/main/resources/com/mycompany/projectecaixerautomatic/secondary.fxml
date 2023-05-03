@@ -24,5 +24,6 @@
       <Button fx:id="principal" layoutX="94.0" layoutY="242.0" mnemonicParsing="false" onAction="#seleccionarcuenta" text="Cuenta Principal" />
       <Button fx:id="ahorros" layoutX="381.0" layoutY="242.0" mnemonicParsing="false" onAction="#seleccionarcuenta" text="Cuenta Ahorros" />
       <Label fx:id="mensaje" layoutX="204.0" layoutY="104.0" />
+      <Label fx:id="mensajepop" layoutX="106.0" layoutY="104.0" />
    </children>
 </Pane>

@@ -1,4 +1,3 @@
-
 package com.mycompany.projectecaixerautomatic;
 
 import java.io.IOException;
@@ -25,6 +24,10 @@ public class cuentaprincipal {
     RadioButton transferir;
     @FXML
     ToggleGroup operaciones;
+    @FXML
+    Label txtoperation;
+    @FXML
+    TextField operar;
     
     //CUENTAS CON SU RESPECTIVO DINERO
     String[] usuarios = {"InakiAlonso","UnaiGomez", "AbdeZafzafi", "RaulFonts","IsmaelPolanco"};
@@ -36,13 +39,51 @@ public class cuentaprincipal {
         mensajepop.setText(App.nom);
         for(int i=0;i<usuarios.length;i++){
             if((App.nom).equals(usuarios[i])){
-                saldoactual.setText(dinero);
+                saldoactual.setText(dinero[i]+" €");
             }
         }
+        operaciones.selectedToggleProperty().addListener((observable, oldValue, newValue) -> {
+        if (newValue == retirar) {
+            txtoperation.setText("RETIRAR  :");
+        } else if (newValue == ingresar) {
+             txtoperation.setText("INGRESAR :");
+        } else if (newValue == transferir) {
+             txtoperation.setText("TRANSFERIR:");
+        }
+        });
     }
     
     //PROGRAMA PRINCIPAL
-    public void seleccioncuenta(){
-     
+    public void seleccionaroperacion(){
+        String ingresos;
+        int ingreso;
+        int ingresototal;
+        if (ingresar.isSelected()){
+            for(int i=0;i<usuarios.length;i++){
+            if((App.nom).equals(usuarios[i])){
+                ingresos=operar.getText();
+                ingreso = Integer.parseInt(ingresos);
+                ingresototal=dinero[i]+ingreso;
+                dinero[i]=ingresototal;
+                saldoactual.setText(dinero[i]+" €");
+                
+            }
+        }
+        }
+        String retiros;
+        int retiro;
+        int retirototal;
+        if (retirar.isSelected()){
+            for(int i=0;i<usuarios.length;i++){
+            if((App.nom).equals(usuarios[i])){
+                retiros=operar.getText();
+                retiro = Integer.parseInt(retiros);
+                retirototal=dinero[i]-retiro;
+                dinero[i]=retirototal;
+                saldoactual.setText(dinero[i]+" €");
+                
+            }
+            }
+        }
     }
 }
