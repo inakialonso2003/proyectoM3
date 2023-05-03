@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class banco {
 
     private String nombrebanco;
-    private ArrayList<clientes>listaclientes;
+    private ArrayList<clientes> listaclientes;
 
     public banco(String nombrebanco) {
         this.nombrebanco = nombrebanco;
@@ -36,13 +36,22 @@ public class banco {
         this.listaclientes = listaclientes;
     }
 
-    public void añadircliente(clientes cliente){
-            listaclientes.add(cliente);
+    public void añadircliente(clientes cliente) {
+        listaclientes.add(cliente);
+    }
+
+    public clientes buscarClientePorNombre(String nombreCliente) {
+        for (clientes cliente : listaclientes) {
+            if (cliente.getNombre().equals(nombreCliente)) {
+                return cliente;
+            }
         }
+        return null; // Devuelve null si no se encontró el cliente
+    }
 
     @Override
     public String toString() {
         return "banco{" + "nombrebanco=" + nombrebanco + ", listaclientes=" + listaclientes.toString() + '}';
     }
-    
+
 }

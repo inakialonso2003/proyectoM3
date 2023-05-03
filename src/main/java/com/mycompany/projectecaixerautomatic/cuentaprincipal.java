@@ -11,7 +11,15 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 
 public class cuentaprincipal {
-    
+
+    @FXML
+    Button seleccionarcuenta;
+    @FXML
+    Button cerrarsesion;
+    @FXML
+    RadioButton cuentaalternativa;
+    @FXML
+    Button realizaroperacion;
     @FXML
     Label mensajepop;
     @FXML
@@ -28,62 +36,90 @@ public class cuentaprincipal {
     Label txtoperation;
     @FXML
     TextField operar;
-    
-    //CUENTAS CON SU RESPECTIVO DINERO
-    String[] usuarios = {"InakiAlonso","UnaiGomez", "AbdeZafzafi", "RaulFonts","IsmaelPolanco"};
-    int[] dinero= {2908,2442,1223,5565,1};
-    
-    //INITIALIZE
+
+    private cuentas cuentaPrincipal;
+    private cuentas cuentaAhorro;
+
+    // INITIALIZE
     @FXML
-    public void initialize(){
-        mensajepop.setText(App.nom);
-        for(int i=0;i<usuarios.length;i++){
-            if((App.nom).equals(usuarios[i])){
-                saldoactual.setText(dinero[i]+" €");
+    public void initialize() {
+        clientes cliente = null;
+        for (int i = 0; i < App.getbanco().getListaclientes().size(); i++) {
+            if (App.nombreUsuario.equals(App.getbanco().getListaclientes().get(i).getNombre())) {
+                cliente = App.getbanco().getListaclientes().get(i);
+                break;
             }
         }
-        operaciones.selectedToggleProperty().addListener((observable, oldValue, newValue) -> {
-        if (newValue == retirar) {
-            txtoperation.setText("RETIRAR  :");
-        } else if (newValue == ingresar) {
-             txtoperation.setText("INGRESAR :");
-        } else if (newValue == transferir) {
-             txtoperation.setText("TRANSFERIR:");
+        if (cliente != null) {
+            for (cuentas cuenta : cliente.getCuentaclientes()) {
+                if (cuenta.getTipocuenta().equals("Principal")) {
+                    cuentaPrincipal = cuenta;
+                } else if (cuenta.getTipocuenta().equals("Ahorros")) {
+                    cuentaAhorro = cuenta;
+                }
+            }
         }
-        });
+        if (cuentaPrincipal != null) {
+            saldoactual.setText(String.valueOf(cuentaPrincipal.getSaldocuenta()));
+        }
     }
-    
-    //PROGRAMA PRINCIPAL
-    public void seleccionaroperacion(){
-        String ingresos;
-        int ingreso;
-        int ingresototal;
-        if (ingresar.isSelected()){
-            for(int i=0;i<usuarios.length;i++){
-            if((App.nom).equals(usuarios[i])){
-                ingresos=operar.getText();
-                ingreso = Integer.parseInt(ingresos);
-                ingresototal=dinero[i]+ingreso;
-                dinero[i]=ingresototal;
-                saldoactual.setText(dinero[i]+" €");
-                
+
+    // REALIZAR OPERACION
+    @FXML
+    private void realizarOperacion() {
+        if (cuentaPrincipal == null) {
+            mensajepop.setText("Error: No se encontró la cuenta.");
+            return;
+        }
+        double cantidad;
+        try {
+            cantidad = Double.parseDouble(operar.getText());
+        } catch (NumberFormatException e) {
+            mensajepop.setText("Error: La cantidad ingresada no es válida.");
+            return;
+        }
+        if (cantidad <= 0) {
+            mensajepop.setText("Error: La cantidad ingresada debe ser mayor a cero.");
+            return;
+        }
+
+        if (ingresar.isSelected()) {
+            cuentaPrincipal.ingresar(cantidad);
+            mensajepop.setText("Se ha ingresado " + cantidad + " euros en la cuenta.");
+        } else if (retirar.isSelected()) {
+            if (cuentaPrincipal.getSaldocuenta() >= cantidad) {
+                cuentaPrincipal.retirar(cantidad);
+                mensajepop.setText("Se ha retirado " + cantidad + " euros de la cuenta.");
+            } else {
+                mensajepop.setText("Error: No hay suficiente saldo en la cuenta.");
+            }
+        } else if (transferir.isSelected()) {
+            mensajepop.setText("Función no implementada.");
+
+        } else if (cuentaalternativa.isSelected()) {
+            double monto = Double.parseDouble(operar.getText());
+            if (cuentaPrincipal.getSaldocuenta() >= monto) {
+                cuentaPrincipal.setSaldocuenta(cuentaPrincipal.getSaldocuenta() - monto);
+                cuentaAhorro.setSaldocuenta(cuentaAhorro.getSaldocuenta() + monto);
+                saldoactual.setText(String.valueOf(cuentaPrincipal.getSaldocuenta()));
+                mensajepop.setText("Transferencia exitosa.");
+                operar.setText("");
+            } else {
+                mensajepop.setText("Error: fondos insuficientes.");
             }
         }
-        }
-        String retiros;
-        int retiro;
-        int retirototal;
-        if (retirar.isSelected()){
-            for(int i=0;i<usuarios.length;i++){
-            if((App.nom).equals(usuarios[i])){
-                retiros=operar.getText();
-                retiro = Integer.parseInt(retiros);
-                retirototal=dinero[i]-retiro;
-                dinero[i]=retirototal;
-                saldoactual.setText(dinero[i]+" €");
-                
-            }
-            }
-        }
+        saldoactual.setText(String.valueOf(cuentaPrincipal.getSaldocuenta()));
+        operar.clear();
+        System.out.println(cuentaAhorro.getSaldocuenta());
+    }
+
+    @FXML
+    private void SeleccionarCuenta(ActionEvent event) throws IOException {
+        App.setRoot("secondary");
+    }
+
+    @FXML
+    private void CerrarSesion(ActionEvent event) throws IOException {
+        App.setRoot("primary");
     }
 }

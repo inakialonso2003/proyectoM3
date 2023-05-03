@@ -30,9 +30,8 @@ public class InicioSesion {
         String user = usuario.getText();
         String password = contraseña.getText();
         App.nom = user;
-        int intentos = 0;
         // VALIDACION DE LECTURA DE USUARIOS Y CONTRASEÑAS
-        boolean inicioSesionExitoso;
+        boolean inicioSesionExitoso = false;
         if (user.trim().isEmpty() || password.trim().isEmpty()) {
             mensaje.setText("Por favor, rellene todos los campos");
             return;
@@ -44,5 +43,15 @@ public class InicioSesion {
                 break;
             }
         }
+        if (inicioSesionExitoso) {
+            App.setRoot("secondary");
+        } else {
+            intentos++;
+            mensaje.setText("algo va mal :C has fallado " + intentos + " vez/ces");
+            if (intentos == 3) {
+                login.setDisable(true);
+            }
+        }
+        App.nombreUsuario = user;
     }
 }
