@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
@@ -22,12 +23,12 @@
             <Font name="System Bold" size="17.0" />
          </font>
       </Label>
-      <RadioButton fx:id="ingresar" layoutX="90.0" layoutY="275.0" mnemonicParsing="false" text="INGRESAR">
+      <RadioButton fx:id="ingresar" layoutX="16.0" layoutY="270.0" mnemonicParsing="false" text="INGRESAR">
          <toggleGroup>
             <ToggleGroup fx:id="operaciones" />
          </toggleGroup>
       </RadioButton>
-      <RadioButton fx:id="retirar" layoutX="16.0" layoutY="275.0" mnemonicParsing="false" text="RETIRAR" toggleGroup="$operaciones" />
+      <RadioButton fx:id="retirar" layoutX="16.0" layoutY="246.0" mnemonicParsing="false" text="RETIRAR" toggleGroup="$operaciones" />
       <TextField fx:id="saldoactual" editable="false" layoutX="128.0" layoutY="81.0" />
       <Label fx:id="txtoperation" layoutX="14.0" layoutY="120.0">
          <font>
@@ -35,10 +36,16 @@
          </font>
       </Label>
       <TextField fx:id="operar" layoutX="128.0" layoutY="118.0" />
-                                                <Button fx:id="realizaroperacion" layoutX="16.0" layoutY="348.0" mnemonicParsing="false" onAction="#realizarOperacion" text="Realizar Operación" />
-      <RadioButton fx:id="transferir" layoutX="176.0" layoutY="275.0" mnemonicParsing="false" text="TRANSFERIR" toggleGroup="$operaciones" />
-      <RadioButton fx:id="cuentaalternativa" layoutX="277.0" layoutY="275.0" mnemonicParsing="false" text="AGREGAR A CUENTA ALTERNATIVA" toggleGroup="$operaciones" />
-      <Button fx:id="seleccioncuenta" layoutX="464.0" layoutY="15.0" mnemonicParsing="false" onAction="#SeleccionarCuenta" text="Seleccion Cuenta" />
-      <Button fx:id="cerrarsesion" layoutX="464.0" layoutY="56.0" mnemonicParsing="false" onAction="#CerrarSesion" prefHeight="25.0" prefWidth="107.0" text="Cerrar Sesión" />
+                                                <Button fx:id="realizaroperacion" layoutX="470.0" layoutY="316.0" mnemonicParsing="false" onAction="#realizarOperacion" text="Realizar Operación" />
+      <RadioButton fx:id="transferir" layoutX="16.0" layoutY="294.0" mnemonicParsing="false" text="TRANSFERIR A CUENTA PRINCIPAL" toggleGroup="$operaciones" />
+      <RadioButton fx:id="cuentaalternativa" layoutX="16.0" layoutY="347.0" mnemonicParsing="false" text="AGREGAR A CUENTA ALTERNATIVA" toggleGroup="$operaciones" />
+      <Button fx:id="seleccioncuenta" layoutX="464.0" layoutY="81.0" mnemonicParsing="false" onAction="#SeleccionarCuenta" text="Seleccion Cuenta" />
+      <Button fx:id="cerrarsesion" layoutX="464.0" layoutY="118.0" mnemonicParsing="false" onAction="#CerrarSesion" prefHeight="25.0" prefWidth="107.0" text="Cerrar Sesión" />
+      <Label fx:id="mensaje11" layoutX="47.0" layoutY="162.0" text="Usuario :">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Label>
+      <TextField fx:id="transferirusuario" editable="false" layoutX="128.0" layoutY="163.0" />
    </children>
 </AnchorPane>

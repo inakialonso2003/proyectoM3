@@ -11,7 +11,17 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+/**
+ * La clase iniciosesion gestiona el inicio de sesion de los usuarios en la
+ * aplicacion.
+ * Permite verificar las credenciales de los usuarios y redirigilos a la
+ * interfaz correspondiente
+ * 
+ * @author Iñaki Alonso Ballesta
+ */
 public class InicioSesion {
+    @FXML
+    Button cambiarcontraseña;
     @FXML
     TextField usuario;
     @FXML
@@ -22,10 +32,31 @@ public class InicioSesion {
     Button login;
     int intentos = 0;
 
+    /**
+     * Método que se ejecuta al inicializar el controlador de la vista.
+     * Se pueden agregar aquí operaciones de inicialización adicionales si es
+     * necesario.
+     */
     public void initialize() {
         System.out.println(App.nuevobanco.toString());
+        cambiarcontraseña.setOnAction(event -> {
+            try {
+                App.setRoot("cambiarcontraseña");
+            } catch (IOException ex) {
+                System.out.println("Error al cargar la vista cambiarcontraseña.fxml");
+            }
+        });
     }
 
+    /**
+     * Método que se ejecuta cuando el usuario hace clic en el botón
+     * "iniciarsesion".
+     * Verifica las credenciales y redirige al usuario a la pantalla correspondiente
+     * si las credenciales son válidas.
+     *
+     * @param event El evento que representa el clic en el botón.
+     * @throws IOException Si ocurre un error al cargar la interfaz de usuario.
+     */
     public void login() throws IOException {
         String user = usuario.getText();
         String password = contraseña.getText();

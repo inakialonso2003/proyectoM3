@@ -12,7 +12,7 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.projectecaixerautomatic.InicioSesion">
    <children>
-      <Button fx:id="login" layoutX="67.0" layoutY="343.0" mnemonicParsing="false" onAction="#login" text="Iniciar Sesión" />
+      <Button fx:id="login" layoutX="67.0" layoutY="301.0" mnemonicParsing="false" onAction="#login" prefHeight="25.0" prefWidth="123.0" text="Iniciar Sesión" />
       <PasswordField fx:id="contraseña" layoutX="345.0" layoutY="98.0" />
       <TextField fx:id="usuario" layoutX="67.0" layoutY="98.0" />
       <Label layoutX="67.0" layoutY="77.0" text="Usuario :" />
@@ -22,5 +22,6 @@
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
+      <Button fx:id="cambiarcontraseña" layoutX="67.0" layoutY="338.0" mnemonicParsing="false" onAction="#login" text="Cambiar Contraseña" />
    </children>
 </Pane>

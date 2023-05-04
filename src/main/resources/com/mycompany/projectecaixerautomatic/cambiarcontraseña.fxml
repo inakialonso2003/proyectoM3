@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.projectecaixerautomatic.cambiarcontraseña">
+   <children>
+      <Label fx:id="mensaje" layoutX="14.0" layoutY="14.0" text="Cambiar Contraseña">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Label>
+      <Label fx:id="mensajepop" layoutX="176.0" layoutY="14.0">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Label>
+      <Label fx:id="mensaje1" layoutX="200.0" layoutY="128.0" text="Usuario :">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Label>
+      <TextField fx:id="usuario" layoutX="276.0" layoutY="128.0" />
+      <Label fx:id="txtoperation" layoutX="14.0" layoutY="120.0">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Label>
+      <TextField fx:id="contraseña" layoutX="276.0" layoutY="169.0" />
+      <Label fx:id="mensaje12" layoutX="118.0" layoutY="169.0" text="Contraseña actual :">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Label>
+      <Label fx:id="mensaje121" layoutX="111.0" layoutY="247.0" text="Repetir contraseña :">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Label>
+      <Label fx:id="mensaje122" layoutX="118.0" layoutY="208.0" text="Nueva contraseña :">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Label>
+      <TextField fx:id="contraseñanueva" layoutX="276.0" layoutY="209.0" />
+      <TextField fx:id="repetircontraseña" layoutX="276.0" layoutY="247.0" />
+      <Button fx:id="cambiarcontraseña" layoutX="227.0" layoutY="312.0" mnemonicParsing="false" onAction="#cambiarContraseña" text="CAMBIAR CONTRASEÑA" />
+      <Button fx:id="seleccionusuario" layoutX="226.0" layoutY="347.0" mnemonicParsing="false" onAction="#seleccionarcuenta" prefHeight="25.0" prefWidth="147.0" text="SELECCION USUARIO" />
+   </children>
+</AnchorPane>
