@@ -19,6 +19,7 @@ import java.util.ArrayList;
  * Inicializa el nombre del banco y crea una lista vacía de clientes.
  *
  * @param nombrebanco El nombre del banco.
+ * 
  */
 public class banco {
 

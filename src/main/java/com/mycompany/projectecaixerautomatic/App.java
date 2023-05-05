@@ -1,11 +1,6 @@
-/**
- * 
- */
+
 package com.mycompany.projectecaixerautomatic;
 
-/**
- * 
- */
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -35,18 +30,11 @@ public class App extends Application {
         return nuevobanco;
     }
 
-    /**
-     * Variables estáticas para mantener información de la sesión y clientes
-     */
     static clientes cliente1;
     static clientes cliente2;
-    /**
-     * 
-     */
+
     private static Scene scene;
-    /**
-     *
-     */
+
     static String nom;
     static boolean cuentas;
 

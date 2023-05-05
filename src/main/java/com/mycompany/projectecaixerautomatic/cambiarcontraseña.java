@@ -9,11 +9,13 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 
 /**
+ * La clase cambiarcontraseña representa el controlador para la
+ * funcionalidad de cambio de contraseña
+ * Esta clase maneja la lógica para validad y cambiar la contraseña de
+ * un usuario utilizando la información ingresada en la interfaz gráfica
+ * 
  * @author Iñaki Alonso Ballesta
- *         La clase cambiarcontraseña representa el controlador para la
- *         funcionalidad de cambio de contraseña
- *         Esta clase maneja la lógica para validad y cambiar la contraseña de
- *         un usuario utilizando la información ingresada en la interfaz gráfica
+ * 
  */
 public class cambiarcontraseña {
 
