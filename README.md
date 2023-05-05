@@ -23,7 +23,7 @@ Contiene varias clases y documentos FXML que se explicarán a continuación:
        
         SelecciónCuentas.java: Esta clase modela una pantalla para seleccionar una  cuenta bancaria específica
         
- #Documentos FXML
+ # Documentos FXML
  
         cambiarcontraseña.fxml: Este documento FXML modela la pantalla para cambiar la contraseña de un cliente.
         
@@ -36,5 +36,9 @@ Contiene varias clases y documentos FXML que se explicarán a continuación:
         terciar.fxml: Este documento FXML modela la pantalla terciaria para mostrar el saldo de una cuenta bancaria.
         
 # Uso
+       Para utilizar este proyecto, primero debe compilarse y ejecutarse App.java. Esto iniciará la aplicación de cajero automático y mostrará la pantalla de inicio de sesión.
        
-             
+       Desde allí, los clientes pueden iniciar sesión en sus cuentas bancarias, realizar transacciones y cambiar sus contraseñas según sea necesario.
+       
+# Autor
+        Este proyecto ha sido creado por Iñaki Alonso Ballesta             
