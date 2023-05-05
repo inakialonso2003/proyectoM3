@@ -30,6 +30,7 @@ public class App extends Application {
         return nuevobanco;
     }
 
+    static billetes Billetes;
     static clientes cliente1;
     static clientes cliente2;
 
@@ -56,7 +57,7 @@ public class App extends Application {
         cliente1.añadircuenta(new cuentas(04, "Principal", 1800));
         nuevobanco.añadircliente(cliente1);
         nuevobanco.añadircliente(cliente2);
-
+        Billetes = new billetes();
         /**
          * Cargar la escena y mostrarla
          */
